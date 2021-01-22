@@ -1,0 +1,22 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["groupBy"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+model VaccineEvent {
+  id                                 Int      @id @default(autoincrement())
+  date                               DateTime
+  state                              String
+  vaccinationsCumulative             Int
+  deltaToPreviousDay                 Int
+  vaccinationsPerMille               Float
+  vaccinationsDueToAge               Int
+  vaccinationsDueToProfession        Int
+  vaccinationsDueToMedicalReasons    Int
+  vaccinationsToNursingHomeResidents Int
+}
